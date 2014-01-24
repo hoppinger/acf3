@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields
 Plugin URI: http://www.advancedcustomfields.com/
 Description: Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress. Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker, repeater, flexible content, gallery and more!
-Version: 3.5.8.1
+Version: 3.5.8.2
 Author: Elliot Condon
 Author URI: http://www.elliotcondon.com/
 License: GPL
@@ -47,11 +47,10 @@ class Acf
 	
 	function __construct()
 	{
-
 		// vars
-		$this->path = plugin_dir_path(__FILE__);
-		$this->dir = plugins_url('',__FILE__);
-		$this->version = '3.5.8.1';
+		$this->path = plugin_dir_path( __FILE__ );
+		$this->dir = plugin_dir_url( __FILE__ );
+		$this->version = '3.5.8.2';
 		$this->upgrade_version = '3.4.1'; // this is the latest version which requires an upgrade
 		$this->cache = array(); // basic array cache to hold data throughout the page load
 		$this->defaults = array(
@@ -155,10 +154,10 @@ class Acf
 		
 		// register acf scripts
 		$scripts = array(
-			'acf-field-group' => $this->dir . '/js/field-group.js',
-			'acf-input' => $this->dir . '/js/input.php',
-			'acf-input-ajax' => $this->dir . '/js/input/ajax.js',
-			'acf-datepicker' => $this->dir . '/core/fields/date_picker/jquery.ui.datepicker.js',
+			'acf-field-group' => $this->dir . 'js/field-group.js',
+			'acf-input' => $this->dir . 'js/input.php',
+			'acf-input-ajax' => $this->dir . 'js/input/ajax.js',
+			'acf-datepicker' => $this->dir . 'core/fields/date_picker/jquery.ui.datepicker.js',
 		);
 		
 		foreach( $scripts as $k => $v )
@@ -169,11 +168,11 @@ class Acf
 		
 		// register acf styles
 		$styles = array(
-			'acf' => $this->dir . '/css/acf.css',
-			'acf-field-group' => $this->dir . '/css/field-group.css',
-			'acf-global' => $this->dir . '/css/global.css',
-			'acf-input' => $this->dir . '/css/input.css',
-			'acf-datepicker' => $this->dir . '/core/fields/date_picker/style.date_picker.css',
+			'acf' => $this->dir . 'css/acf.css',
+			'acf-field-group' => $this->dir . 'css/field-group.css',
+			'acf-global' => $this->dir . 'css/global.css',
+			'acf-input' => $this->dir . 'css/input.css',
+			'acf-datepicker' => $this->dir . 'core/fields/date_picker/style.date_picker.css',
 		);
 		
 		foreach( $styles as $k => $v )

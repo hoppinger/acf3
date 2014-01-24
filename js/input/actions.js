@@ -444,7 +444,18 @@ var acf = {
 	$(window).load(function(){
 		
 		setTimeout(function(){
-
+			
+			// Hack for CPT without a content editor
+			try
+			{
+				wp.media.view.settings.post.id = acf.post_id;	
+			} 
+			catch(e)
+			{
+				// one of the objects was 'undefined'...
+			}
+			
+			
 			// setup fields
 			$(document).trigger('acf/setup_fields', $('#poststuff'));
 			
